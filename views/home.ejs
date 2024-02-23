@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF2Image</title>
+    <style>
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <form class="mb-3 form-container" method="POST" action="/convert" onsubmit="disableButton()">
+            <fieldset>
+                <div class="mb-3">
+                    <h1 class="text-center mb-5">PDF2Image</h1>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Url</span>
+                        <input
+                            type="url"
+                            name="url"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mt-2">
+                        <span class="input-group-text" id="basic-addon1">Directory Path</span>
+                        <input
+                            type="text"
+                            name="directory"
+                            class="form-control"
+                            placeholder="C:/Users/Timotius-Simanjuntak/Downloads/pdf-downloader-result-files/"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mt-2">
+                        <span class="input-group-text" id="basic-addon1">File name</span>
+                        <input
+                            type="text"
+                            name="filename"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                    <button id="submitButton" class="btn w-100 btn-primary mt-3" type="submit">Convert</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        function disableButton() {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Loading...';
+        }
+    </script>
+</body>
+</html>
